@@ -11,6 +11,6 @@ The following packages are required to run the code: RandomForestsGLS, tidyverse
 - Patelli, L., Cameletti, M., Golini, N., Ignaccolo, R., 2024+. Spatial SIRUS: an explainability algorithm for spatial
 regression Random Forest. **(DA COMPLETARE)** [dove si trova](url)
 - Saha, A., Basu, S., Datta, A., 2023. Random forests for spatially dependent data. Journal of the American Statistical Association 118, 665–683.
-- Benard, C., Biau, G., da Veiga, S., Scornet, E., 2021a. Interpretable Random Forests via Rule Extraction, in: Proceedings of The 24th International Conference on Artificial Intelligence and Statistics, PMLR. pp. 937–945.
-- Benard, C., Biau, G., da Veiga, S., Scornet, E., 2021b. SIRUS: Stable and Interpretable RUle Set for classification. Electronic Journal of Statistics 15, 427–505
+- Bénard, C., Biau, G., da Veiga, S., Scornet, E., 2021a. Interpretable Random Forests via Rule Extraction, in: Proceedings of The 24th International Conference on Artificial Intelligence and Statistics, PMLR. pp. 937–945.
+- Bénard, C., Biau, G., da Veiga, S., Scornet, E., 2021b. SIRUS: Stable and Interpretable RUle Set for classification. Electronic Journal of Statistics 15, 427–505
 - Breiman, L., 2001. Random Forests. Machine Learning 45, 5-32.
