@@ -10,7 +10,7 @@ The following packages are required to run the code: RandomForestsGLS, tidyverse
 **References**
 - Patelli, L., Cameletti, M., Golini, N., Ignaccolo, R., 2024+. Spatial SIRUS: an explainability algorithm for spatial
 regression Random Forest. **(DA COMPLETARE)** [dove si trova](url).
-- Saha, A., Basu, S., Datta, A., 2023. Random forests for spatially dependent data. Journal of the American Statistical Association 118, 665–683 [link](https://www.tandfonline.com/doi/full/10.1080/01621459.2021.1950003).
-- Bénard, C., Biau, G., da Veiga, S., Scornet, E., 2021a. Interpretable Random Forests via Rule Extraction, in: Proceedings of The 24th International Conference on Artificial Intelligence and Statistics, PMLR. pp. 937–945 [link](https://proceedings.mlr.press/v130/benard21a.html).
-- Bénard, C., Biau, G., da Veiga, S., Scornet, E., 2021b. SIRUS: Stable and Interpretable RUle Set for classification. Electronic Journal of Statistics 15, 427–505 [link](https://projecteuclid.org/journals/electronic-journal-of-statistics/volume-15/issue-1/SIRUS-Stable-and-Interpretable-RUle-Set-for-classification/10.1214/20-EJS1792.full).
-- Breiman, L., 2001. Random Forests. Machine Learning 45, 5-32 [link](https://dl.acm.org/doi/10.1023/A%3A1010933404324).
+- Saha, A., Basu, S., Datta, A., 2023. Random forests for spatially dependent data. Journal of the American Statistical Association 118, 665–683 [(link)](https://www.tandfonline.com/doi/full/10.1080/01621459.2021.1950003).
+- Bénard, C., Biau, G., da Veiga, S., Scornet, E., 2021a. Interpretable Random Forests via Rule Extraction, in: Proceedings of The 24th International Conference on Artificial Intelligence and Statistics, PMLR. pp. 937–945 [(link)](https://proceedings.mlr.press/v130/benard21a.html).
+- Bénard, C., Biau, G., da Veiga, S., Scornet, E., 2021b. SIRUS: Stable and Interpretable RUle Set for classification. Electronic Journal of Statistics 15, 427–505 [(link)](https://projecteuclid.org/journals/electronic-journal-of-statistics/volume-15/issue-1/SIRUS-Stable-and-Interpretable-RUle-Set-for-classification/10.1214/20-EJS1792.full).
+- Breiman, L., 2001. Random Forests. Machine Learning 45, 5-32 [(link)](https://dl.acm.org/doi/10.1023/A%3A1010933404324).
