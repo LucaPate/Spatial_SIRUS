@@ -5,12 +5,13 @@ This repository contains the functions required to use Spatial SIRUS (S-SIRUS) a
 
 Here ([Guided Example](s.sirus_guided_example.R)) we propose a simplified guided example with some simulated data to run S-SIRUS. All the required functions and data are available in separated `R` scripts available in the [source](source) folder. Note that currently S-SIRUS can be used only for regression applications in which training and test observations come from the same region.
 
-The following packages are required to run the code: 
-- `RandomForestsGLS`
-- `tidyverse`
-- `glmnet`
-- `BRISC`
-- `sirus`
+The following `R` packages are required to run the code: 
+- `RandomForestsGLS` >= 0.1.4 [(link)](https://cran.r-project.org/package=RandomForestsGLS)
+- `glmnet` >= 4.1.8 [(link)](https://cran.r-project.org/web/packages/glmnet/)
+- `BRISC` >= 1.0.5 [(link)](https://cran.r-project.org/package=BRISC)
+- `sirus` >= 0.3.3 [(link)](https://cran.r-project.org/web/packages/sirus/index.html)
+- `tidyverse` >= 2.0.0 [(link)](https://cran.r-project.org/web/packages/tidyverse/)
+
 
 **References**
 - Patelli, L., Cameletti, M., Golini, N., Ignaccolo, R., 2024+. Spatial SIRUS: an explainability algorithm for spatial
