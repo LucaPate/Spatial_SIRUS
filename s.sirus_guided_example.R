@@ -22,7 +22,6 @@ source("s.sirus_rfgls.R")
 source("s.sirus_formula.R")
 source("s.sirus_RcppExports.R") 
 source("s.sirus_utility.R")
-#source("utility.R")
 
 
 # Load the simulated data ---------------------------------
