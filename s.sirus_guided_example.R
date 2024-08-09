@@ -35,14 +35,14 @@ data$y = NULL
 
 # In the following code the first 400 observations 
 # are used as training data and the last 100 observations
-# as test data. 
+# as test data (as in the companion paper). 
 # Please, note this setting is quite LONG to run
 # For a quick overview of the results,
 # use a smaller number of observations 
 # (e.g., 100 training data and 25 test data)
 
-n_tr = 100 # number of training data
-n_te = 25  # number of test data
+n_tr = 400 # number of training data
+n_te = 100  # number of test data
 seed = 1234
 
 # S-SIRUS cross-validation --------------------------------------------------------------------------------
