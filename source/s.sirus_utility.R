@@ -1,21 +1,24 @@
 # The following code is an adaptation of the SIRUS functions available at https://github.com/cran/sirus/tree/master/R .
-# This code can be used for the implementation of the functions for Spatial SIRUS (S-SIRUS).
+# This code can be used for the implementation of Spatial SIRUS (S-SIRUS).
+# At the moment the S-SIRUS functions can be used ONLY for regression applications.
+# The use of the main S-SIRUS functions is described in the companion paper 
+# and a guided example is presented in the s.sirus_guided_example.R script file.
 
-##### This script contains some utility functions needed for running S-SIRUS
+# This script contains some utility functions needed for running S-SIRUS
 
-# Merge paths and proba of two rfgls runs
+### Merge paths and proba of two rfgls runs
 rangerMerge <- function(numTrees, paths1, proba1, paths2, proba2){
   res <- rangerMergeCpp(numTrees, paths1, proba1, paths2, proba2)
   return(res)
 }
 
-# compute stability metric
+### compute stability metric
 stabilityMetric <- function(numTrees, proba){
   res <- stabilityMetricCpp(numTrees, proba)
   return(res)
 }
 
-# bin variable with empirical q-quantiles
+### bin variable with empirical q-quantiles
 get.bins <- function(X, y, q, discrete.limit){
   bins <- list()
   if (is.numeric(X)){
@@ -41,6 +44,7 @@ get.bins <- function(X, y, q, discrete.limit){
   }
   return(bins)
 }
+
 binarize.X <- function(X, bins, q){
   # continuous and discrete variables
   if (bins$type %in% c('continuous', 'discrete')){
@@ -67,7 +71,7 @@ binarize.X <- function(X, bins, q){
   return(X.bin)
 }
 
-# run random forest algorithm iteratively
+### run random forest algorithm iteratively
 rfgls.stab <- function(data.bin.y, num.trees.step = 1000, alpha = 0.05, mtry = NULL, max.depth = 2, 
                           num.trees = NULL, num.threads = NULL, replace = TRUE,
                           sample.fraction = ifelse(replace, 1, 0.632), verbose = TRUE, seed = NULL,coords, incl.coords){
@@ -120,7 +124,7 @@ rfgls.stab <- function(data.bin.y, num.trees.step = 1000, alpha = 0.05, mtry = N
   
 }
 
-# path post-treatment for d = 1 or 2 (exact and deterministic algorithm)
+### path post-treatment for d = 1 or 2 (exact and deterministic algorithm)
 paths.filter.2 <- function(paths, proba, num.rule){
   
   paths.ftr <- list()
@@ -260,7 +264,8 @@ paths.filter.2 <- function(paths, proba, num.rule){
   return(list(paths = paths.ftr, proba = proba.ftr))
   
 }
-# path post-treatment  for any d (stochastic heuristic)
+
+### path post-treatment  for any d (stochastic heuristic)
 paths.filter.d <- function(paths, proba, num.rule, data.bin, incl.coord){
   
   if(incl.coord == FALSE){
@@ -324,7 +329,7 @@ paths.filter.d <- function(paths, proba, num.rule, data.bin, incl.coord){
   
 }
 
-# format path
+### format path
 format.path <- function(path, bins.list){
   lapply(path, function(split){
     bins <- bins.list[[split[1]]]
@@ -347,7 +352,7 @@ format.path <- function(path, bins.list){
   })
 }
 
-# recover rule from path
+### recover rule from path
 get.rule <- function(path, bins.list, data.names){
   lapply(path, function(split){
     var.name <- data.names[as.numeric(split[1])]
@@ -366,7 +371,7 @@ get.rule <- function(path, bins.list, data.names){
   })
 }
 
-# get rule outputs
+### get rule outputs
 get.rule.support.from.bin <- function(path, data.bin){
   splits <- sapply(path, function(split){
     X <- data.bin[, split[1]]
@@ -380,6 +385,7 @@ get.rule.support.from.bin <- function(path, data.bin){
   })
   apply(splits, 1, prod)
 }
+
 get.rule.support <- function(data, rules){  
   as.data.frame(lapply(rules, function(rule){
     Z <- sapply(rule, function(split){
@@ -404,6 +410,7 @@ get.rule.support <- function(data, rules){
     }
   }))
 }
+
 get.rule.outputs <- function(data.rule.supp, y){
   lapply(1:ncol(data.rule.supp), function(j){
     Z <- data.rule.supp[, j]
@@ -413,7 +420,7 @@ get.rule.outputs <- function(data.rule.supp, y){
   })
 }
 
-# transform data
+### transform data
 get.data.rule <- function(data, rules, rules.out){
   rules.bool <- get.rule.support(data, rules)
   ndata <- nrow(data)
@@ -429,7 +436,7 @@ get.data.rule <- function(data, rules, rules.out){
   return(data.rule)
 }
 
-# check data
+### check data
 data.check <- function(data){
   
   # check data type
@@ -459,7 +466,7 @@ data.check <- function(data){
   
 }
 
-# check data and y
+### check data and y
 data.y.check <- function(data, y){
   
   # check data
@@ -483,7 +490,7 @@ data.y.check <- function(data, y){
   
 }
 
-# check Spatial sirus parameters
+### check Spatial SIRUS parameters
 s.sirus.param.check <- function(data, num.rule.max, q, num.trees.step, alpha, mtry){
   
   # check num.rule.max
@@ -528,7 +535,7 @@ s.sirus.param.check <- function(data, num.rule.max, q, num.trees.step, alpha, mt
   
 }
 
-# check spatial sirus model
+### check spatial SIRUS model
 s.sirus.model.check <- function(s.sirus.m){
   
   s.sirus.valid <- FALSE
@@ -559,6 +566,6 @@ s.sirus.model.check <- function(s.sirus.m){
   
 }
 
-# Smart search and count in a list
+### Smart search and count in a list
 fun_search <- function(lst, val) sapply(lst, function(x) all(val %in% x))
 fun_search_count <- function(lst, val) sum(sapply(lst, function(x) all(val %in% x)))
