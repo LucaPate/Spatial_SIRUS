@@ -10,8 +10,8 @@
 # data = matrix of the features, the first two must be the coordinates
 # y = vector of the response values
 # incl.coords = logic to consider coordinates provided in data as predictors (TRUE) or not (FALSE)
-# type = type of application, 'reg' for regression
-# max.depth = must be equal to 2
+# type = type of application, only the 'reg' option is possible
+# max.depth = max tree depth, only the value 2 is possible
 
 s.sirus.fit <- function(data, y, incl.coords = NULL, type = 'reg', num.rule = 10, p0 = NULL, num.rule.max = 25, q = 10, 
                         discrete.limit = 10, num.trees.step = 1000, alpha = 0.05, mtry = NULL,
