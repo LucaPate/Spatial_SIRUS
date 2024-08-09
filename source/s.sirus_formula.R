@@ -1,5 +1,8 @@
 # The following code is an adaptation of the SIRUS functions available at https://github.com/cran/sirus/tree/master/R .
-# This code can be used for the implementation of the functions for Spatial SIRUS (S-SIRUS).
+# This code can be used for the implementation of Spatial SIRUS (S-SIRUS).
+# At the moment the S-SIRUS functions can be used ONLY for regression applications.
+# The use of the main S-SIRUS functions is described in the companion paper 
+# and a guided example is presented in the s.sirus_guided_example.R script file.
 
 ##### This function is used to prepare the data used in the rfgls function
 
