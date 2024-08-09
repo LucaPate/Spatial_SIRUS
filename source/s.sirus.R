@@ -1,18 +1,16 @@
 # The following code is an adaptation of the SIRUS functions available at https://github.com/cran/sirus/tree/master/R .
-# This code can be used for the implementation of the functions for Spatial SIRUS (S-SIRUS).
-
-# At this version the S-SIRUS functions can be used ONLY for regression applications as described in the main paper.
-# The use of the main S-SIRUS functions is descibed in the main paper and a guided example is presented in the s.sirus_guided_example.R script.
+# This code can be used for the implementation of Spatial SIRUS (S-SIRUS).
+# At the moment the S-SIRUS functions can be used ONLY for regression applications.
+# The use of the main S-SIRUS functions is described in the companion paper 
+# and a guided example is presented in the s.sirus_guided_example.R script file.
 
 
 ##### Fit the Spatial SIRUS rules
-
-
-# Differently from the original version, s.sirus.fit requires:
-# data = matrix of the features, the first two have to be the coordinates
+# Differently from the original function in the SIRUS package, s.sirus.fit requires:
+# data = matrix of the features, the first two must be the coordinates
 # y = vector of the response values
 # incl.coords = logic to consider coordinates provided in data as predictors (TRUE) or not (FALSE)
-# type = type of application only 'reg' for regression
+# type = type of application, 'reg' for regression
 # max.depth = must be equal to 2
 
 s.sirus.fit <- function(data, y, incl.coords = NULL, type = 'reg', num.rule = 10, p0 = NULL, num.rule.max = 25, q = 10, 
@@ -25,6 +23,7 @@ s.sirus.fit <- function(data, y, incl.coords = NULL, type = 'reg', num.rule = 10
   data.y.check(data, y) 
   # check S-SIRUS parameters
   s.sirus.param.check(data, num.rule.max, q, num.trees.step, alpha, mtry)
+  
   # check num.rule
   num.rule.valid <- is.numeric(num.rule)
   if (num.rule.valid){num.rule.valid <- (round(num.rule) == num.rule) & num.rule > 0}
@@ -37,6 +36,7 @@ s.sirus.fit <- function(data, y, incl.coords = NULL, type = 'reg', num.rule = 10
       }
     }
   }
+  
   # check p0
   if (!is.null(p0)){
     p0.valid <- is.numeric(p0) & (p0 >= 0) & (p0 <= 1)
@@ -194,8 +194,6 @@ s.sirus.fit <- function(data, y, incl.coords = NULL, type = 'reg', num.rule = 10
 
 
 ##### Print the list of rules output by Spatial SIRUS
-
-
 s.sirus.print <- function(s.sirus.m, digits = 3){
   
   # check s.sirus.m is a valid Spatial SIRUS model
@@ -255,9 +253,7 @@ s.sirus.print <- function(s.sirus.m, digits = 3){
 }
 
 
-##### Compute Spatial SIRUS predictions for the large scale (regression function)
-
-
+##### Compute Spatial SIRUS predictions for the large scale (aka regression function)
 s.sirus.predict <- function(s.sirus.m, data.test){
   
   # check s.sirus.m is a valid Spatial SIRUS model
@@ -294,21 +290,18 @@ s.sirus.predict <- function(s.sirus.m, data.test){
 }
 
 
-##### Tune the optimal hyperparameter p0 used to select most frequent rules in s.sirus.fit
-
-
-# Differently from the original version, s.sirus.cv requires:
-# data = matrix of the features, the first two have to be the coordinates
+##### Tune the optimal hyperparameter p0 used to select the most frequent rules in s.sirus.fit
+# Differently from the original function in the SIRUS package, s.sirus.cv requires:
+# data = matrix of the features, the first must be the coordinates
 # y = vector of the response values
 # incl.coords = logic to consider coordinates provided in data as predictors (TRUE) or not (FALSE)
-# type = type of application only 'reg' for regression
+# type = type of application, 'reg' for regression
 # max.depth = must be equal to 2
 
 s.sirus.cv <- function (data, y, incl.coords = NULL, type = "reg", nfold = 10, ncv = 10, num.rule.max = 25, 
                         q = 10, discrete.limit = 10, num.trees.step = 1000, alpha = 0.05, 
                         mtry = NULL, max.depth = 2, num.trees = NULL, num.threads = NULL, 
-                        replace = TRUE, sample.fraction = NULL, verbose = TRUE, seed = NULL) 
-{
+                        replace = TRUE, sample.fraction = NULL, verbose = TRUE, seed = NULL) {
   
   data.y.check(data, y)
   nfold.valid <- is.numeric(nfold)
@@ -317,7 +310,7 @@ s.sirus.cv <- function (data, y, incl.coords = NULL, type = "reg", nfold = 10, n
   }
   if (!nfold.valid) {
     stop("Invalid nfold. Number of cross-validation folds has to be an integer greater than 2.")
-  }else {
+  }else{
     if (nfold > nrow(data)) {
       nfold <- nrow(data)
       warning(paste0("Warning nfold: nfold is greater than the sample size (=", 
@@ -332,7 +325,7 @@ s.sirus.cv <- function (data, y, incl.coords = NULL, type = "reg", nfold = 10, n
         warning("Warning type: y takes only two distinct values, classification is more appropriate.")
       }
     }
-  }else {
+  }else{
     stop("Invalid type. Type should be reg (for regression).")
   }
   ncv.valid <- is.numeric(ncv)
@@ -341,7 +334,7 @@ s.sirus.cv <- function (data, y, incl.coords = NULL, type = "reg", nfold = 10, n
   }
   if (!ncv.valid) {
     stop("Invalid ncv. Number of cross-validations has to be an integer greater than 1.")
-  }else {
+  }else{
     if (ncv == 1) {
       warning("Warning ncv: It is recommended to run multiple cross-validations for a robust estimation of p0.")
     }
@@ -375,11 +368,11 @@ s.sirus.cv <- function (data, y, incl.coords = NULL, type = "reg", nfold = 10, n
   error.grids <- lapply(1:ncv, function(iter, p0.grid) { 
     
     if (verbose == TRUE) {
-      print(paste0("Running cross-validation iteration", iter, "/", 
+      print(paste0("Running cross-validation iteration ", iter, "/", 
                    ncv, " ..."))
     }
     
-    # create k-folds
+    # create K-folds
     ndata <- nrow(data)
     ind <- cut(seq(1,ndata), breaks = nfold, labels = F)
     ind <- sample(ind, size = ndata, replace = F)
@@ -595,8 +588,6 @@ s.sirus.cv <- function (data, y, incl.coords = NULL, type = "reg", nfold = 10, n
 
 
 ##### Plot the Spatial SIRUS cross-validation path: error and stability versus the number of rules when p0 varies.
-
-
 s.sirus.plot.cv <- function(s.sirus.cv.grid, p0.criterion = NULL, num.rule.max = 25){
   
   if (is.null(p0.criterion)){
