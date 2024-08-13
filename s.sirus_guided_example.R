@@ -1,7 +1,7 @@
 # Guided example for running S-SIRUS
 # Authors: L. Patelli, N. Golini, R. Ignaccolo, M. Cameletti
 # Last update: 09/08/2024
-# For details see the companion paper: Arxiv????
+# For details see the companion paper: https://arxiv.org/abs/2408.05537
 
 
 rm(list = ls())
