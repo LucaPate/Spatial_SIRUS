@@ -14,7 +14,7 @@ The following `R` packages are required to run the code:
 
 
 **References**
-- Patelli, L., Cameletti, M., Golini, N., Ignaccolo, R., 2025. S-SIRUS: an explainability algorithm for spatial regression Random Forest. Statistics and Computing 35, 142 [(link)](https://link.springer.com/article/10.1007/s11222-025-10656-0).
+- Patelli, L., Golini, N., Ignaccolo, R., Cameletti, M., 2025. S-SIRUS: an explainability algorithm for spatial regression Random Forest. Statistics and Computing 35, 142 [(link)](https://link.springer.com/article/10.1007/s11222-025-10656-0).
 - Saha, A., Basu, S., Datta, A., 2023. Random forests for spatially dependent data. Journal of the American Statistical Association 118, 665–683 [(link)](https://www.tandfonline.com/doi/full/10.1080/01621459.2021.1950003).
 - Bénard, C., Biau, G., da Veiga, S., Scornet, E., 2021a. Interpretable Random Forests via Rule Extraction, in: Proceedings of The 24th International Conference on Artificial Intelligence and Statistics, PMLR. pp. 937–945 [(link)](https://proceedings.mlr.press/v130/benard21a.html).
 - Bénard, C., Biau, G., da Veiga, S., Scornet, E., 2021b. SIRUS: Stable and Interpretable RUle Set for classification. Electronic Journal of Statistics 15, 427–505 [(link)](https://projecteuclid.org/journals/electronic-journal-of-statistics/volume-15/issue-1/SIRUS-Stable-and-Interpretable-RUle-Set-for-classification/10.1214/20-EJS1792.full).
